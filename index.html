@@ -1,0 +1,103 @@
+<html>
+
+    <head>
+
+        <title> What Is My IP? / Software Shinobi </title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/lux/bootstrap.min.css">
+
+<title>
+
+Cancun, MX / Airline Price Checker
+
+</title>
+
+  </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">VPN Test</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    
+  
+  
+  </div>
+</nav>
+        
+        <br />
+
+        <div class="container">
+
+            <br />
+
+            <h1>Your Internet Traffic Info</h1>
+
+            <br />
+
+            <p>IP Address: <span id="ip-address"></span></p>
+
+            <p>City: <span id="city"></span></p>
+
+            <p>Region <span id="region"></span></p>
+
+            <p>Country: <span id="country"></span></p>
+
+            <p>ISP: <span id="isp"></span></p>
+
+            <p>Latitude: <span id="latitude"></span></p>
+
+            <p>Longitude: <span id="longitude"></span></p>
+
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <script>
+
+            $(document).ready(function() {
+
+                $.getJSON("https://api.ipify.org?format=json", function(data) {
+
+                    $.getJSON("https://ipapi.co/" + data.ip + "/json/", function(locationData) {
+
+                        console.log("locationData / "+ JSON.stringify(locationData));
+
+                        $("#ip-address").text(locationData.ip);
+
+                        $("#city").text(locationData.city);
+
+                        $("#region").text(locationData.region);
+
+                        $("#country").text(locationData.country_name);
+
+                        $("#isp").text(locationData.org);
+
+                        $("#latitude").text(locationData.latitude);
+
+                        $("#longitude").text(locationData.longitude);
+
+                    });
+
+                });
+
+            });
+            
+        </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,19 @@
+services:
+
+    whatismyip.softwareshinobi.com:
+
+        container_name: whatismyip.softwareshinobi.com
+        
+        image: softwareshinobi/whatismyip.softwareshinobi.com
+
+        build: 
+
+            context: .
+
+            dockerfile: Dockerfile
+    
+        restart: unless-stopped
+
+        ports:
+
+            - "8080:80"
